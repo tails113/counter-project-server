@@ -19,3 +19,4 @@ def modify_counter():
         counter.increase()
     else:
         counter.decrease()
+    return "Counter modified"
