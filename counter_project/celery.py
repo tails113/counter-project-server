@@ -19,10 +19,12 @@ after_setup_logger.connect(after_setup_logger_handler)
 after_setup_task_logger.connect(after_setup_logger_handler)
 
 app = Celery(
-    config.get( 'APPLICATION_NAME', 'counter-project' ),
+    config.get( 'APPLICATION_NAME', 'counter_project' ),
     broker = config.get( 'CELERY_BROKER' ),
     backend = config.get( 'CELERY_BACKEND' ),
-    include = []
+    include = [
+        'counter_project.core'
+    ]
 )
 
 app.conf.update(
