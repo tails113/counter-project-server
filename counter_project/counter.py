@@ -21,10 +21,10 @@ class Counter():
 
     def decrease( self ):
         self.__database.decr('counter', amount=1)
-        if int(self.get()) < 1:
+        if int(self.get()) <= 0:
             self.__database.getset('ascending', 'true')
         
     def increase( self ):
         self.__database.incr('counter', amount=1)
-        if int(self.get()) > 19:
+        if int(self.get()) >= 10:
             self.__database.getset('ascending', 'false')
